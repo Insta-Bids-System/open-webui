@@ -26,8 +26,8 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					// Only include dependencies that are definitely internal/bundleable
-					'vendor-svelte': ['@sveltejs/kit', 'svelte'],
-					'vendor-pyodide': ['pyodide']
+					'vendor-svelte': ['@sveltejs/kit', 'svelte']
+					// Removed 'vendor-pyodide': ['pyodide'] - pyodide is external
 					// Removed external modules: dayjs, uuid, marked, dompurify
 					// These are handled automatically by Rollup as external dependencies
 				}
