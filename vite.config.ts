@@ -26,11 +26,10 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					// Only include dependencies that are definitely internal/bundleable
-					'vendor-core': ['@sveltejs/kit', 'svelte'],
-					'vendor-utils': ['dayjs', 'uuid', 'marked', 'dompurify'],
+					'vendor-svelte': ['@sveltejs/kit', 'svelte'],
 					'vendor-pyodide': ['pyodide']
-					// Removed @tiptap/core, prosemirror, and codemirror from manual chunks
-					// as they're being treated as external modules
+					// Removed external modules: dayjs, uuid, marked, dompurify
+					// These are handled automatically by Rollup as external dependencies
 				}
 			}
 		},
