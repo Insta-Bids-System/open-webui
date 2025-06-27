@@ -25,18 +25,12 @@ export default defineConfig({
 		rollupOptions: {
 			output: {
 				manualChunks: {
-					// Vendor chunks for better caching and memory optimization
+					// Only include dependencies that are definitely internal/bundleable
 					'vendor-core': ['@sveltejs/kit', 'svelte'],
-					'vendor-ui': ['@tiptap/core', '@tiptap/starter-kit', 'bits-ui'],
 					'vendor-utils': ['dayjs', 'uuid', 'marked', 'dompurify'],
-					'vendor-pyodide': ['pyodide'],
-					'vendor-codemirror': ['codemirror', '@codemirror/lang-javascript', '@codemirror/lang-python'],
-					'vendor-prosemirror': [
-						'prosemirror-model', 
-						'prosemirror-state', 
-						'prosemirror-view',
-						'prosemirror-commands'
-					]
+					'vendor-pyodide': ['pyodide']
+					// Removed @tiptap/core, prosemirror, and codemirror from manual chunks
+					// as they're being treated as external modules
 				}
 			}
 		},
