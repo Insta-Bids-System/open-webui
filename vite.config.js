@@ -33,6 +33,11 @@ export default defineConfig({
 		]
 	},
 
+	// 🔧 CRITICAL FIX: Worker configuration for Pyodide build error
+	worker: {
+		format: 'es'
+	},
+
 	define: {
 		APP_VERSION: JSON.stringify(pkg.version),
 		APP_BUILD_HASH: JSON.stringify(process.env.APP_BUILD_HASH || 'dev-build')
